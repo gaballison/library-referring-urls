@@ -64,5 +64,5 @@ $("#bcErr").html("<p class=\"alert alert-warning\"><b>Oops!</b> You're trying to
 
 **line 146:** replace [YOUR WEB PAGE ABOUT LIBRARY CARDS] with relevant URL
 ```javascript
-$("#bcErr").html("<p class=\"alert alert-danger\"><b>Attention!</b> That library card number isn't right. Try again or <a href=\"[YOUR WEBSITE PAGE ABOUT LIBRARY CARDS]\" target=\"_blank\">sign up for a library card</a></p>");
+$("#bcErr").html("<p class=\"alert alert-danger\"><b>Attention!</b> That library card number isn't right. Try again or <a href=\"[YOUR WEB PAGE ABOUT LIBRARY CARDS]\" target=\"_blank\">sign up for a library card</a></p>");
 ```
