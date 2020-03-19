@@ -1,6 +1,6 @@
 # Library Referring URLs
 
-This is a simple site template to help libraries set up a referring URL system to enable remote access to the library's online resources. It uses regular expressions for barcode matching to authentication. It's built using PHP, jQuery, and Bootstrap.
+This is a simple site template to help libraries set up a referring URL system to enable remote access to the library's online resources. It uses regular expressions for barcode matching to authenticate patrons. It's built using PHP, jQuery, and Bootstrap.
 
 # Customizing the code
 
