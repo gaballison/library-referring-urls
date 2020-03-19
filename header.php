@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="HandheldFriendly" content="true">
 
-		<title>Authenticating JTPL patrons</title>
+		<title>Authenticating [YOUR LIBRARY NAME] patrons</title>
 
 		<!-- BOOTSTRAP files -->
 			<!-- jQUERY -->
@@ -32,7 +32,7 @@
 		<header>
 			<div class="row justify-content-center">
 				<div class="col" style="text-align: center;">
-					<a href="https://jefflibrary.org" target="_blank"><img src="https://jefflibrary.org/wp/wp-content/uploads/2015/10/jefflib-smaller.png" alt="Jeffersonville Township Public Library" title="Jeffersonville Township Public Library"/></a>
+					<a href="[YOUR LIBRARY WEBSITE]" target="_blank"><img src="[YOUR LIBRARY LOGO]" alt="[YOUR LIBRARY NAME]" title="[YOUR LIBRARY NAME]"/></a>
 				</div>
 			</div>
 		</header>
