@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-
-
 	/**********************************
 	 * 								  *
 	 *     UPDATE THESE VARIABLES	  *
@@ -9,10 +7,10 @@ $(document).ready(function(){
 	 * 								  *
 	 *********************************/
 	// 01. Library name
-	let libName = " ";
+	const libName = " ";
 
 	// 02. Library website
-	let libURL = " ";
+	const libURL = " ";
 
 	// 03. Regular expression to match a library barcode
 	// e.g. ^1234567+[0-9]{7}$
@@ -20,8 +18,18 @@ $(document).ready(function(){
 
 	// 04. array of online resources to be used 
 	let databases = new Array(
-		{id: "nac", name: "Newspaper Archive", url: "https://access.newspaperarchive.com", pageTitle: "Search Historic Newspapers!"},
-		{id: "ale", name: "Ancestry Library Edition", url: "https://ancestrylibrary.proquest.com/", pageTitle: "Search Genealogical Records!"}
+		{
+			id: "abc", 
+			name: "Resource ABC", 
+			url: "https://abc.com", 
+			pageTitle: "Search Historic Newspapers!"
+		},
+		{
+			id: "def", 
+			name: "Resource DEF", 
+			url: "https://def.com", 
+			pageTitle: "Search Business Records"
+		},
 	)
 	
 	/************************
@@ -127,7 +135,7 @@ $(document).ready(function(){
 			// if the barcode matches the pattern but the db code doesn't exist
 			// give an error and point to online resources page
 			else {
-				$("#bcErr").html("<p class=\"alert alert-warning\"><b>Oops!</b> You're trying to access a site that doesn't use this authentication feature. <a href=\"http://jefflibrary.org/resources\" target=\"_blank\">Go back to our online resources page</a> and try again.</p>");
+				$("#bcErr").html("<p class=\"alert alert-warning\"><b>Oops!</b> You're trying to access a site that doesn't use this authentication feature. <a href=\"[YOUR ONLINE RESOURCES PAGE]\" target=\"_blank\">Go back to our online resources page</a> and try again.</p>");
 			}
 			
 		} 
@@ -135,7 +143,7 @@ $(document).ready(function(){
 		// if the barcode number doesn't match the pattern
 		// give an error and link to page with card signup info
 		else {
-			$("#bcErr").html("<p class=\"alert alert-danger\"><b>Attention!</b> That library card number isn't right. Try again or <a href=\"http://jefflibrary.org/using-the-library/get-a-library-card\" target=\"_blank\">sign up for a library card</a></p>");
+			$("#bcErr").html("<p class=\"alert alert-danger\"><b>Attention!</b> That library card number isn't right. Try again or <a href=\"[YOUR WEBSITE PAGE ABOUT LIBRARY CARDS]\" target=\"_blank\">sign up for a library card</a></p>");
 		}	
 	})
 });
