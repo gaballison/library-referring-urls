@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="eng">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="HandheldFriendly" content="true">
+
+        <link rel="stylesheet" href="css/style.css" />
+
+        <title>Authenticating library patrons</title>
+
+
+    </head>
+
+    <body>
+
+        <div id="main-container">
+            <header>
+                
+            </header>
+
+            <div class="card">
+
+                <p class="para">Enter your library card number below to access <span id="dbTitle"></span> from home!</p>
+
+                <hr />
+
+                <form id="libBarcode">
+                    <div id="formInput">
+                        <label for="inputBarcode" id="ibLabel"><strong>Library Card #:</strong></label>
+                        <input type="text" id="inputBarcode" required />
+                    </div>
+                    <div id="subButton">
+                        <button id="turn" type="submit">Log In</button>
+                    </div>
+                </form>
+                <div id="feedback">
+                </div>
+            </div> <!-- /card -->
+            <footer id="footer"> </footer>
+
+        </div> <!-- /main-container -->
+    </body>
+    <script src="js/script.js"></script>
+</html>

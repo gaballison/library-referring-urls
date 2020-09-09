@@ -1,68 +1,76 @@
 # Library Referring URLs
 
-This is a simple site template to help libraries set up a referring URL system to enable remote access to the library's online resources. It uses regular expressions for barcode matching to authenticate patrons. It's built using PHP, jQuery, and Bootstrap.
+This is a simple site template to help libraries set up a referring URL system to enable remote access to the library's online resources. It uses regular expressions for barcode matching to authenticate patrons. Version 2.0 has been refactored to use only vanilla JS and HTML instead of jQuery and PHP, so it will hopefully be easier for people to use.
+
+# How to use
+
+1. Customize the code (see below) with all of your specific library information, including:
+    - Links to your library's website, logo, online resources page, and library card information
+    - Your library's barcode pattern information
+    - Database info such as ID code (a 3-character code you create yourself), URL, and title
+2. Upload the code to a directory on your library's website, like `https://mylibrary.org/auth`
+3. Set up links to the databases you specified like so: `https://mylibrary.org/auth/index.html?db=abc`
+
 
 # Customizing the code
 
-You're welcome to reuse and repurpose the code as you wish! The following files require customization.
+You're welcome to reuse and repurpose the code as you wish! Version 2.0 handles all customizations through the `script.js` file in `js`.
 
-## `header.php`
+## `js/script.js`
 
-This page is mostly HTML and can be easily edited with the relevant names and URLs for your library.
-
-**line 9:** replace [YOUR LIBRARY NAME]
-```html
-<title>Authenticating [YOUR LIBRARY NAME] patrons</title>
-```
-
-**line 35:** replace [YOUR LIBRARY WEBSITE], [YOUR LIBRARY LOGO], and [YOUR LIBRARY NAME]
-```html
-<a href="[YOUR LIBRARY WEBSITE]" target="_blank"><img src="[YOUR LIBRARY LOGO]" alt="[YOUR LIBRARY NAME]" title="[YOUR LIBRARY NAME]"/></a>
-```
-
-## `js/custom.js`
-
-All of the logic for barcode matching and site redirection is done in this file.
-
-**line 10:** enter your library name between the quotation marks
+**line 8:** enter your library name between the quotation marks
 ```javascript
-const libName = " ";
+const libName = "My Local Library";
 ```
 
-**line 13:** enter your library website between the quotation marks
+**line 11:** enter the URL for your library's logo
 ```javascript
-const libURL = " ";
+const libLogo = "https://mylibrary.org/logo.png";
 ```
 
-**line 17:** create a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) to match your library's barcode
+**line 14:** enter your library website between the quotation marks
 ```javascript
-let patt2 = new RegExp(' ');
+const libURL = "https://mylibrary.org";
 ```
 
-**lines 20-33:** replace the id, name, url, and title with relevant info for your chosen resource
+**line 17:** enter the page on your website with information about how to obtain a library card
+```javascript
+const libGetCard = "https://mylibrary.org/library-cards";
+```
+
+**line 20:** enter the page on your website with links to your online resources/databases
+```javascript
+const libResources = "https://mylibrary.org/resources";
+```
+
+**lines 26-35:** create a [regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions) to match each of your library's barcode patterns and add the length for each pattern. You can delete the second entry if your library only uses 1 pattern
+```javascript
+let patterns = new Array(
+  {
+    regex: new RegExp("^1234567+[0-9]{7}$"),
+    length: 14 
+  },
+  {
+    regex: new RegExp(" "),
+    length: 0
+  }
+);
+```
+
+**lines 38-51:** replace the id, name, url, and title with relevant info for your chosen resource
 ```javascript
 let databases = new Array(
-    {
-        id: "abc", 
-        name: "Resource ABC", 
-        url: "https://abc.com", 
-        pageTitle: "Search Historic Newspapers!"
-    },
-    {
-        id: "def", 
-        name: "Resource DEF", 
-        url: "https://def.com", 
-        pageTitle: "Search Business Records"
-    },
-)
-```
-
-**line 138:** replace [YOUR ONLINE RESOURCES PAGE] with relevant URL
-```javascript
-$("#bcErr").html("<p class=\"alert alert-warning\"><b>Oops!</b> You're trying to access a site that doesn't use this authentication feature. <a href=\"[YOUR ONLINE RESOURCES PAGE]\" target=\"_blank\">Go back to our online resources page</a> and try again.</p>");
-```
-
-**line 146:** replace [YOUR WEB PAGE ABOUT LIBRARY CARDS] with relevant URL
-```javascript
-$("#bcErr").html("<p class=\"alert alert-danger\"><b>Attention!</b> That library card number isn't right. Try again or <a href=\"[YOUR WEB PAGE ABOUT LIBRARY CARDS]\" target=\"_blank\">sign up for a library card</a></p>");
+  {
+    id: "abc", // this is a 3-character code you create yourself
+    name: "Sample Database 1",
+    url: "https://database-one.com",
+    subTitle: "Search historical newspapers!"
+  },
+  {
+    id: "def",
+    name: "Sample Database 2",
+    url: "https://database-two.com",
+    subTitle: "Search business records!"
+  }
+);
 ```
